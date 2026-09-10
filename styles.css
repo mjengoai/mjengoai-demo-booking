@@ -11,8 +11,8 @@
 
   --green: #35E07A;
   --green-dim: #1E7A47;
-  --orange: #F2A65A;
-  --orange-dim: #8A5A29;
+  --orange: #FF8A24;
+  --orange-dim: #B85A0F;
 
   --ink: #ECF5EE;
   --ink-dim: #A8B6AC;
@@ -323,6 +323,11 @@ a { color: inherit; }
   flex-direction: column;
   align-items: flex-start;
   gap: 4px;
+}
+/* The [hidden] attribute must win over the class's display:flex above,
+   otherwise the confirmation panel shows before a booking is made. */
+.confirmation[hidden] {
+  display: none;
 }
 .confirmation__icon { margin-bottom: 12px; }
 .confirmation h3 {
