@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>MjengoAI Pro Demo — Book a 30-Minute Walkthrough</title>
+<meta name="description" content="Book a free 30-minute demonstration of MjengoAI Pro — Africa's Intelligent Construction OS. Choose a time that works for you." />
+<meta name="robots" content="index, follow" />
+
+<!-- Open Graph -->
+<meta property="og:title" content="See MjengoAI Pro in Action" />
+<meta property="og:description" content="Book a free 30-minute demonstration and see how MjengoAI Pro can help you manage construction projects, budgets, payments, variations, site reports and client communication." />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Mono:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+
+<!-- Decorative blueprint grid -->
+<div class="site-grid" aria-hidden="true"></div>
+
+<header class="topbar">
+  <div class="topbar__inner">
+    <div class="wordmark">
+      <span class="wordmark__mark" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2 20V8L11 2L20 8V20" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M8 20V12H14V20" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      <span class="wordmark__text">MjengoAI</span>
+    </div>
+    <div class="topbar__tag">Pro Demo Booking</div>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="hero__inner">
+      <div class="hero__copy">
+        <p class="eyebrow-line"><span class="eyebrow-line__tick">—</span> Africa's Intelligent Construction OS</p>
+        <h1 class="hero__title">See MjengoAI Pro<br class="br-desktop"> in action</h1>
+        <p class="hero__sub">
+          Book a free 30-minute demonstration and see how MjengoAI Pro can help you manage
+          construction projects, budgets, payments, variations, site reports and client communication.
+        </p>
+        <a href="#book" class="btn btn--primary hero__cta">
+          Book a Demo
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3.5 8H12.5M12.5 8L8.5 4M12.5 8L8.5 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+
+        <dl class="hero__facts">
+          <div class="hero__fact">
+            <dt>Format</dt>
+            <dd>Live, 1:1 walkthrough</dd>
+          </div>
+          <div class="hero__fact">
+            <dt>Duration</dt>
+            <dd>30 minutes</dd>
+          </div>
+          <div class="hero__fact">
+            <dt>Where</dt>
+            <dd>Google Meet</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="hero__figure" aria-hidden="true">
+        <svg viewBox="0 0 360 360" class="blueprint-figure" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="180" cy="180" r="150" stroke="var(--line-dim)" stroke-width="1"/>
+          <circle cx="180" cy="180" r="110" stroke="var(--line-dim)" stroke-width="1" stroke-dasharray="2 6"/>
+          <path d="M60 230 L140 130 L200 180 L300 90" stroke="var(--green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="60" cy="230" r="4" fill="var(--green)"/>
+          <circle cx="140" cy="130" r="4" fill="var(--orange)"/>
+          <circle cx="200" cy="180" r="4" fill="var(--green)"/>
+          <circle cx="300" cy="90" r="4" fill="var(--orange)"/>
+          <path d="M40 300 H320" stroke="var(--line-dim)" stroke-width="1"/>
+          <path d="M50 300 V310 M320 300 V310" stroke="var(--line-dim)" stroke-width="1"/>
+          <text x="180" y="325" text-anchor="middle" class="figure-label">30 MIN WALKTHROUGH</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING -->
+  <section class="book" id="book">
+    <div class="book__inner">
+      <div class="book__intro">
+        <p class="eyebrow-line"><span class="eyebrow-line__tick">—</span> Schedule</p>
+        <h2 class="book__title">Choose a time that works for you</h2>
+        <p class="book__sub">
+          Pick a date and time below. You'll confirm your details on the next step —
+          we'll send a calendar invite with a Google Meet link straight after.
+        </p>
+
+        <ul class="book__meta-list">
+          <li><span class="book__meta-label">Appointment</span><span>MjengoAI Pro Demo</span></li>
+          <li><span class="book__meta-label">Duration</span><span>30 minutes</span></li>
+          <li><span class="book__meta-label">Timezone</span><span>Africa/Nairobi (EAT, UTC+3)</span></li>
+          <li><span class="book__meta-label">Meeting</span><span>Google Meet link included</span></li>
+        </ul>
+      </div>
+
+      <div class="book__panel">
+        <div class="panel-frame">
+          <div class="panel-frame__bar">
+            <span class="panel-frame__dot"></span>
+            <span class="panel-frame__label">MjengoAI Pro Demo · 30 min</span>
+          </div>
+
+          <!-- Calendly inline widget -->
+          <div id="calendly-embed" class="calendly-embed" data-loaded="false">
+            <div class="calendly-loading">
+              <div class="calendly-loading__spinner" aria-hidden="true"></div>
+              <p>Loading available times…</p>
+            </div>
+          </div>
+
+          <!-- Branded confirmation (shown after Calendly reports a successful booking) -->
+          <div id="confirmation" class="confirmation" hidden>
+            <div class="confirmation__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="var(--green)" stroke-width="1.6"/><path d="M8.5 14.5L12 18L19.5 9.5" stroke="var(--green)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Demo Booked Successfully</h3>
+            <p class="confirmation__lede">Thank you. Your MjengoAI Pro demonstration has been booked.</p>
+
+            <div class="confirmation__card">
+              <p class="confirmation__card-title">You're booked.</p>
+              <dl class="confirmation__details">
+                <div><dt>Appointment</dt><dd>MjengoAI Pro Demo</dd></div>
+                <div><dt>Duration</dt><dd>30 minutes</dd></div>
+                <div><dt>Timezone</dt><dd>Africa/Nairobi (EAT)</dd></div>
+                <div><dt>Meeting</dt><dd>Google Meet — link included in your confirmation email</dd></div>
+              </dl>
+            </div>
+
+            <p class="confirmation__note">
+              A calendar invite and full confirmation — including your exact date, time and
+              Google Meet link — has been sent to your email address.
+            </p>
+            <button type="button" class="btn btn--ghost" id="book-another">Book a different time</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <span>MjengoAI — Africa's Intelligent Construction OS</span>
+    <span class="footer__dim">Demo bookings run on Africa/Nairobi time (EAT, UTC+3)</span>
+  </div>
+</footer>
+
+<script src="./config.js"></script>
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<script src="./app.js"></script>
+</body>
+</html>

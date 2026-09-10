@@ -1,0 +1,10 @@
+{
+  "name": "demo-mjengoai",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Standalone MjengoAI Pro demo-booking page (demo.mjengoai.com)",
+  "scripts": {
+    "build": "node build.js",
+    "start": "npx serve ."
+  }
+}

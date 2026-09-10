@@ -1,0 +1,406 @@
+/* ==========================================================================
+   MjengoAI Pro — Demo Booking Page
+   Tokens
+   ========================================================================== */
+:root {
+  --bg: #0A0D0B;
+  --bg-elevated: #10140F;
+  --bg-panel: #12160F;
+  --line-dim: rgba(230, 245, 230, 0.10);
+  --line-mid: rgba(230, 245, 230, 0.18);
+
+  --green: #35E07A;
+  --green-dim: #1E7A47;
+  --orange: #F2A65A;
+  --orange-dim: #8A5A29;
+
+  --ink: #ECF5EE;
+  --ink-dim: #A8B6AC;
+  --ink-faint: #6C7A6F;
+
+  --display: 'Archivo', 'Inter', system-ui, sans-serif;
+  --body: 'Inter', system-ui, sans-serif;
+  --mono: 'IBM Plex Mono', 'SFMono-Regular', monospace;
+
+  --radius-sm: 4px;
+  --radius-md: 10px;
+  --maxw: 1180px;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+a { color: inherit; }
+
+/* Decorative blueprint grid background */
+.site-grid {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(var(--line-dim) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line-dim) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 90% 60% at 50% 0%, black 40%, transparent 85%);
+  opacity: 0.5;
+}
+
+/* ==========================================================================
+   Topbar
+   ========================================================================== */
+.topbar {
+  position: relative;
+  z-index: 2;
+  border-bottom: 1px solid var(--line-dim);
+}
+.topbar__inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.wordmark { display: flex; align-items: center; gap: 8px; }
+.wordmark__mark { color: var(--green); display: inline-flex; }
+.wordmark__text {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: -0.01em;
+}
+.topbar__tag {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink-faint);
+}
+
+/* ==========================================================================
+   Shared bits
+   ========================================================================== */
+.eyebrow-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--orange);
+  margin: 0 0 18px;
+}
+.eyebrow-line__tick { color: var(--line-mid); }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--body);
+  font-weight: 600;
+  font-size: 15px;
+  padding: 13px 22px;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+}
+.btn--primary {
+  background: var(--green);
+  color: #06170D;
+}
+.btn--primary:hover { transform: translateY(-1px); background: #45EE89; }
+.btn--ghost {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--line-mid);
+}
+.btn--ghost:hover { border-color: var(--green); color: var(--green); }
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+.hero {
+  position: relative;
+  z-index: 1;
+  padding: 72px 24px 56px;
+}
+.hero__inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  align-items: center;
+}
+.hero__title {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(34px, 5vw, 56px);
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  margin: 0 0 20px;
+}
+.hero__sub {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink-dim);
+  max-width: 46ch;
+  margin: 0 0 32px;
+}
+.hero__cta { margin-bottom: 40px; }
+.hero__cta svg { transition: transform 0.15s ease; }
+.hero__cta:hover svg { transform: translateX(2px); }
+
+.hero__facts {
+  display: flex;
+  gap: 28px;
+  margin: 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--line-dim);
+  flex-wrap: wrap;
+}
+.hero__fact dt {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  color: var(--ink-faint);
+  margin-bottom: 4px;
+}
+.hero__fact dd {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.hero__figure { display: flex; justify-content: center; }
+.blueprint-figure { width: 100%; max-width: 360px; height: auto; }
+.figure-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  fill: var(--ink-faint);
+  letter-spacing: 0.06em;
+}
+
+/* ==========================================================================
+   Booking section
+   ========================================================================== */
+.book {
+  position: relative;
+  z-index: 1;
+  padding: 40px 24px 96px;
+}
+.book__inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 48px;
+  align-items: start;
+}
+.book__title {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(24px, 3vw, 32px);
+  letter-spacing: -0.01em;
+  margin: 0 0 14px;
+}
+.book__sub {
+  color: var(--ink-dim);
+  font-size: 15.5px;
+  line-height: 1.6;
+  max-width: 40ch;
+  margin: 0 0 32px;
+}
+
+.book__meta-list {
+  list-style: none;
+  margin: 0;
+  padding: 20px 0 0;
+  border-top: 1px solid var(--line-dim);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.book__meta-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 14px;
+}
+.book__meta-label {
+  color: var(--ink-faint);
+  font-family: var(--mono);
+  font-size: 12px;
+}
+.book__meta-list li > span:last-child { color: var(--ink); text-align: right; }
+
+.book__panel { position: sticky; top: 24px; }
+
+.panel-frame {
+  background: var(--bg-panel);
+  border: 1px solid var(--line-dim);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  min-height: 640px;
+  display: flex;
+  flex-direction: column;
+}
+.panel-frame__bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--line-dim);
+  background: var(--bg-elevated);
+}
+.panel-frame__dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 0 3px rgba(53, 224, 122, 0.15);
+}
+.panel-frame__label {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink-dim);
+}
+
+/* Calendly container */
+.calendly-embed {
+  flex: 1;
+  min-height: 600px;
+  width: 100%;
+}
+.calendly-embed .calendly-inline-widget,
+.calendly-embed iframe {
+  min-height: 600px;
+  width: 100%;
+}
+
+.calendly-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  min-height: 600px;
+  color: var(--ink-faint);
+  font-size: 14px;
+}
+.calendly-loading__spinner {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  border: 2px solid var(--line-mid);
+  border-top-color: var(--green);
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.calendly-embed[data-error="true"] .calendly-loading p::after {
+  content: " Please check your connection and refresh.";
+}
+
+/* Confirmation panel */
+.confirmation {
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+.confirmation__icon { margin-bottom: 12px; }
+.confirmation h3 {
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 0 6px;
+}
+.confirmation__lede {
+  color: var(--ink-dim);
+  font-size: 15px;
+  margin: 0 0 24px;
+}
+.confirmation__card {
+  width: 100%;
+  border: 1px solid var(--line-mid);
+  border-left: 2px solid var(--green);
+  border-radius: var(--radius-sm);
+  padding: 20px;
+  background: var(--bg-elevated);
+  margin-bottom: 20px;
+}
+.confirmation__card-title {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 16px;
+  margin: 0 0 14px;
+  color: var(--green);
+}
+.confirmation__details { margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.confirmation__details div { display: flex; justify-content: space-between; gap: 12px; font-size: 13.5px; }
+.confirmation__details dt { color: var(--ink-faint); font-family: var(--mono); font-size: 12px; }
+.confirmation__details dd { margin: 0; text-align: right; }
+.confirmation__note {
+  font-size: 13.5px;
+  color: var(--ink-faint);
+  line-height: 1.6;
+  margin: 0 0 22px;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.footer {
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid var(--line-dim);
+  padding: 24px;
+}
+.footer__inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--ink-faint);
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (max-width: 900px) {
+  .hero__inner { grid-template-columns: 1fr; gap: 32px; }
+  .hero__figure { order: -1; max-width: 220px; margin: 0 auto; }
+  .book__inner { grid-template-columns: 1fr; gap: 28px; }
+  .book__panel { position: static; }
+  .br-desktop { display: none; }
+}
+
+@media (max-width: 560px) {
+  .topbar__inner { padding: 14px 16px; }
+  .hero { padding: 40px 16px 40px; }
+  .book { padding: 8px 16px 64px; }
+  .hero__facts { gap: 20px; }
+  .panel-frame { min-height: 560px; border-radius: var(--radius-sm); }
+  .calendly-embed, .calendly-loading { min-height: 520px; }
+  .confirmation { padding: 28px 20px; }
+  .footer__inner { flex-direction: column; }
+}
